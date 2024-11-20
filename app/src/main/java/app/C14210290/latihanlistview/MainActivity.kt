@@ -1,9 +1,11 @@
 package app.C14210290.latihanlistview
 
+import android.app.DownloadManager.Query
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -54,5 +56,29 @@ class MainActivity : AppCompatActivity() {
             data.removeFirst()
             lvAdapter.notifyDataSetChanged()
         }
+
+        val _btnSearch = findViewById<SearchView>(R.id.SeachView1)
+
+
+        _btnSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                var position = p0?.toInt()
+
+                if (position != null) {
+                    if (position-1 > data.size || position-1 < 0){
+                        Toast.makeText(this@MainActivity, "input tidak boleh kurang dari 1 atau lebih dari panjang data, yaitu ${data.size}", Toast.LENGTH_SHORT).show()
+                    }
+                    else{
+                        Toast.makeText(this@MainActivity, "", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 }

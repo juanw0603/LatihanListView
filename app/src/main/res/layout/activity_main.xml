@@ -9,6 +9,12 @@
     android:weightSum="10"
     tools:context=".MainActivity">
 
+    <SearchView
+        android:id="@+id/SeachView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3" />
+
     <ListView
 
         android:id="@+id/lv1"
@@ -20,13 +26,13 @@
         android:id="@+id/button_nambahData"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4.5"
+        android:layout_weight="3"
         android:text="tambah data" />
 
     <Button
         android:id="@+id/button_hapusData"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4.5"
+        android:layout_weight="3"
         android:text="Button" />
 </LinearLayout>
